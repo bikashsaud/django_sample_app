@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Item List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div>
+        <div class="d-flex justify-content-start"><h4>Expenses</h4></div>
+        <div class="d-flex justify-content-end"><a href="{% url 'add_expense' %}" class="btn btn-primary">Add Expense</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ expense.title }}</td>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.category.name }}</td>
+                    <td>{{ expense.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

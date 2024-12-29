@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Expense{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="d-flex justify-content-start">
+            <h5>Add Expenses</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <form style="width: 50rem;" method="post" action="{% url 'add_expense' %}">
+                {% csrf_token %}
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" name="date" id="form4Example1" class="form-control" />
+                    <label class="form-label" for="form4Example1">Date</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" name="title" id="form4Example1" class="form-control" />
+                    <label class="form-label" for="form4Example1">Title</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" name="amount" id="form4Example2" class="form-control" />
+                    <label class="form-label" for="form4Example2">Amount</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                    {{ form.category }}
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea class="form-control" name="description" id="form4Example3" rows="4"></textarea>
+                    <label class="form-label" for="form4Example3">Description</label>
+                </div>
+                <div class="row ">
+                    <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    </div>  
+                    
+                </div> 
+            </form>
+        </div>
+    </div>
+    </form>
+</div>
+
+{% endblock %}
